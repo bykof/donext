@@ -1,0 +1,17 @@
+.new-task-input:focus {
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;;
+    box-shadow: none !important;;
+}
+
+.new-task-input {
+    margin: 10px 0 !important;
+}
+
+.selected-task {
+    background-color: rgb(0, 0, 238);
+}
+
+.selected-task * {
+    color: white;
+}

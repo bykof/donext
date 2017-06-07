@@ -2,8 +2,8 @@
 
 // Import parts of electron to use
 const {app, BrowserWindow} = require('electron');
-const path = require('path')
-const url = require('url')
+const path = require('path');
+const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -18,7 +18,11 @@ if ( process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) 
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1024, height: 768, show: false
+    width: 1024,
+    height: 768,
+    show: false,
+    minWidth: 800,
+    minHeight: 600
   });
 
   // and load the index.html of the app.

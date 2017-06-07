@@ -1,12 +1,18 @@
-import '../assets/css/App.css';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import TasksComponent from './TasksComponent';
+
+import 'photonkit/dist/css/photon.css';
+import 'simplemde/dist/simplemde.min.css';
+
+import TasksStore from "../stores/TasksStore";
+
+const tasksStore = new TasksStore;
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello, Electron!</h1>
-        <p>I hope you enjoy using basic-electron-react-boilerplate to start your dev off right!</p>
+        <TasksComponent tasksStore={tasksStore} />
       </div>
     );
   }
