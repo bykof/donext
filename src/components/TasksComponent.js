@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Task from "../models/Task";
 import TaskComponent from "./TaskComponent";
 import classNames from 'classnames';
 
@@ -52,19 +51,21 @@ export default class TasksComponent extends React.Component {
               classNames('list-group-item', {'selected-task': this.state.selected_task === task})
             }
           >
-            <div className="row">
-              <strong
-                onClick={
-                  () => {
-                    this.selectTask(task)
-                  }
+            <div
+              className="row"
+              onClick={
+                () => {
+                  this.selectTask(task)
                 }
-              >
+              }
+            >
+              <strong>
                 {task.name}
               </strong>
               <a
                 href="#"
                 className="pull-right"
+                id="delete-task"
                 onClick={
                   () => {
                     this.deleteTask(task)

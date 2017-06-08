@@ -7,19 +7,25 @@ export default class TaskStore {
   id;
   @observable name;
   @observable note;
+  @observable cron;
+  @observable cron_active;
   
   constructor(tasksStore, task) {
     this.tasksStore = tasksStore;
     this.id = task.id;
     this.name = task.name;
     this.note = task.note;
+    this.cron = task.cron;
+    this.cron_active = task.cron_active;
   }
   
   toJSON() {
     return {
       id: this.id,
       name: this.name,
-      note: this.note
+      note: this.note,
+      cron: this.cron,
+      cron_active: this.cron_active
     }
   }
   

@@ -1,0 +1,4 @@
+tr:active, .table-striped tr:active:nth-child(even) {
+    background-color: transparent !important;
+    color: black !important;
+}

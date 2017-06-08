@@ -15,3 +15,7 @@
 .selected-task * {
     color: white;
 }
+
+#delete-task {
+    z-index: 100;
+}
