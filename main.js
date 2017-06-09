@@ -22,7 +22,8 @@ function createWindow() {
     height: 768,
     show: false,
     minWidth: 800,
-    minHeight: 600
+    minHeight: 600,
+    icon: path.join(__dirname, './icons/clipboard.png.ico')
   });
 
   // and load the index.html of the app.

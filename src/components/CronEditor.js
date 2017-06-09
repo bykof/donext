@@ -1,18 +1,10 @@
 import React, {Component} from 'react';
-import CronValidation from "../validations/CronValidation";
+import cron from 'node-cron';
 
 
 class CronEditor extends React.Component {
   
   EVERY = '*';
-  static validationMapping = {
-    second: CronValidation.validateSecond,
-    minute: CronValidation.validateMinute,
-    hour: CronValidation.validateHour,
-    day_of_month: CronValidation.validateDayOfMonth,
-    month: CronValidation.validateMonth,
-    day_of_week: CronValidation.validateDayOfWeek,
-  };
   
   constructor(props) {
     super(props);
@@ -44,11 +36,13 @@ class CronEditor extends React.Component {
       this.setState(this.state);
     }
     
-    for (let key in CronEditor.validationMapping) {
-      if (event.target.name === key && CronEditor.validationMapping[key](event.target.value)) {
-        this.state[event.target.name] = event.target.value;
-        this.setState(this.state, this.onChange);
-      }
+    let before_value = this.state[event.target.name];
+    this.state[event.target.name] = event.target.value;
+    this.setState(this.state, this.onChange);
+    
+    if (!cron.validate(this.toString())) {
+      this.state[event.target.name] = before_value;
+      this.setState(this.state, this.onChange);
     }
   }
   

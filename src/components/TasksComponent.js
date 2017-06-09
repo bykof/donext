@@ -23,7 +23,13 @@ export default class TasksComponent extends React.Component {
   
   handleSubmit(event) {
     event.preventDefault();
-    this.props.tasksStore.createTask({name: this.state.new_task});
+    this.props.tasksStore.createTask(
+      {
+        name: this.state.new_task,
+        cron: '* * * * * *',
+        cron_active: false
+      }
+    );
     this.setState({new_task: ''});
   }
   
